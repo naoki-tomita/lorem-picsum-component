@@ -3,10 +3,6 @@ import { createRoot, Root } from "react-dom/client";
 
 
 function createUrl(id?: number, width?: number, height?: number) {
-  if (!width || !height) {
-    // square pattern or default
-    return `https://picsum.photos/${width ?? height ?? 200}`;
-  }
   if (id) {
     return `https://picsum.photos/id/${id}/${[width, height].filter(Boolean).join("/")}`;
   }
@@ -14,9 +10,9 @@ function createUrl(id?: number, width?: number, height?: number) {
 }
 
 const App: FC<{
+  id?: number;
   width?: number;
   height?: number;
-  id?: number;
 }> = ({ id, width, height }) => {
   return (
     <img src={createUrl(id, width, height)} />
@@ -24,7 +20,9 @@ const App: FC<{
 };
 
 class LoremPicsum extends HTMLElement {
-  root: Root;
+  static observedAttributes = ["id", "width", "height"];
+
+  private root: Root;
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
@@ -47,10 +45,6 @@ class LoremPicsum extends HTMLElement {
 
   attributeChangedCallback() {
     this.connectedCallback();
-  }
-
-  static get observedAttributes() {
-    return ["id", "width", "height"];
   }
 }
 

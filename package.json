@@ -1,13 +1,19 @@
 {
-  "name": "image-component",
+  "name": "@kojiro.ueda/lorem-picsum",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
     "vite": "^2.9.14"
+  },
+  "scripts": {
+    "start": "vite dev --port 3000",
+    "build": "esbuild index.tsx --minify --bundle=true > index.js"
   }
 }
