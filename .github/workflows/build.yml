@@ -18,7 +18,7 @@ jobs:
       with:
         node-version: 16.x
         cache: 'npm'
-    - run: npm ci
-    - run: npm run build
+    - run: yarn
+    - run: yarn build
     - run: git add index.js
     - run: git commit -m "[skip ci] build script."
