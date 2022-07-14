@@ -20,5 +20,9 @@ jobs:
         cache: 'npm'
     - run: yarn
     - run: yarn build
+    - run: |
+      git add -N .
+      git diff --name-only --exit-code
+    continue-on-error: true
     - run: git add index.js
     - run: git commit -m "[skip ci] build script."
