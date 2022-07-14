@@ -20,8 +20,11 @@ jobs:
     - run: yarn
     - run: yarn build
     - run: |
-      git add -N .
-      git diff --name-only --exit-code
-    continue-on-error: true
+        git add -N .
+        git diff --name-only --exit-code
+      continue-on-error: true
     - run: git add index.js
-    - run: git commit -m "[skip ci] build script."
+    - run: |
+        git config --local user.email "mail@kojiro.ueda.com"
+        git config --local user.name "github-actions"
+        git commit -m "[skip ci] build script."
