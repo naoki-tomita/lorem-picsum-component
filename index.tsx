@@ -39,12 +39,12 @@ class LoremPicsum extends HTMLElement {
     this.root.render(<App {...{ id, width, height }} />);
   }
 
-  disconnectedCallback() {
-    this.root.unmount();
-  }
-
   attributeChangedCallback() {
     this.connectedCallback();
+  }
+
+  disconnectedCallback() {
+    this.root.unmount();
   }
 }
 
