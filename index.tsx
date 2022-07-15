@@ -3,10 +3,7 @@ import { createRoot, Root } from "react-dom/client";
 
 
 function createUrl(id?: number, width?: number, height?: number) {
-  if (id) {
-    return `https://picsum.photos/id/${id}/${[width, height].filter(Boolean).join("/")}`;
-  }
-  return `https://picsum.photos/${[width, height].filter(Boolean).join("/")}`;
+  return `https://picsum.photos/${[id ? `id/${id}` : undefined, width, height].filter(Boolean).join("/")}`;
 }
 
 const App: FC<{
