@@ -14,6 +14,8 @@
   },
   "scripts": {
     "start": "vite dev --port 3000",
-    "build": "esbuild index.tsx --minify --bundle=true > index.js"
+    "build": "yarn build:lib && yarn build:pages",
+    "build:lib": "esbuild index.tsx --minify --bundle=true > index.js",
+    "build:pages": "vite build --base=./ ."
   }
 }
