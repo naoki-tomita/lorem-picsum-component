@@ -19,16 +19,12 @@ jobs:
         cache: 'npm'
     - run: yarn --frozen-lockfile
     - run: yarn build
-    - name: check diff
-      run: |
-        git add -N .
-        git diff --name-only --exit-code
-      continue-on-error: true
     - name: setup git
       run: |
         git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
     - name: commit and push
+      continue-on-error: true
       run: |
         git add index.js dist
         git commit -m "[skip ci] build script."
