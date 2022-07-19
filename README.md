@@ -1,5 +1,11 @@
 # getting started
 
+## how to use 
+
+```html
+<lorem-picsum id="123" width="200" height="400"></lorem-picsum>
+```
+
 ## CDN
 
 T.B.D
