@@ -11,8 +11,10 @@ const App: FC<{
   width?: number;
   height?: number;
 }> = ({ id, width, height }) => {
+  const finalWidth = width ?? height ?? 200;
+  const finalHeight = height ?? width ?? 200;
   return (
-    <img src={createUrl(id, width, height)} />
+    <img src={createUrl(id, finalWidth, finalHeight)} width={finalWidth} height={finalHeight} />
   );
 };
 
