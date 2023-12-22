@@ -26,10 +26,10 @@ class LoremPicsum extends HTMLElement {
     super();
     this.attachShadow({ mode: "open" });
     this.root = createRoot(this.shadowRoot!);
-    this.style.display = "inline-block";
   }
 
   connectedCallback() {
+    this.style.display = "inline-block";
     const widthStr = this.attributes.getNamedItem("width")?.value;
     const heightStr = this.attributes.getNamedItem("height")?.value;
     const idStr = this.attributes.getNamedItem("id")?.value;
