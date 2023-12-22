@@ -26,6 +26,7 @@ class LoremPicsum extends HTMLElement {
     super();
     this.attachShadow({ mode: "open" });
     this.root = createRoot(this.shadowRoot!);
+    this.style.display = "inline-block";
   }
 
   connectedCallback() {
